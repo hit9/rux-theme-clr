@@ -86,7 +86,22 @@ html
 .side
   text-align: center
 
-// author
+// side divs
+.side .author, .main .meta
+  h1, h2
+    +ofl-font()
+    margin-top: .7em
+  h2
+    font-size: 16px
+    color: #777
+
+.main .meta
+  text-align: center
+  margin-bottom: 2em
+  padding-bottom: 2em
+  border-bottom: 1px solid $bclr
+
+// author avatar
 .side .author
   a.avatar img
     $size: $side-width - 2 * $side-padding
@@ -94,12 +109,6 @@ html
     height: $size
     +border-radius(100em)
     // background-color: $aclr
-  h1, h2
-    +ofl-font()
-    margin-top: .7em
-  h2
-    font-size: 16px
-    color: #777
 
 .main
   width: 100%

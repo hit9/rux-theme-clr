@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="meta">
+  <a href="{{root}}/" class="blog-name">
+  <h1>{{blog.name}}</h1>
+  <h2>{{blog.description}}</h2>
+  </a>
+</div>
 <div class="posts">
 {% for post in page.posts %}
 <div class="item">

@@ -20,9 +20,17 @@ or
 git submodule add git://github.com/hit9/rux-theme-clr.git clr
 ```
 
-Add this to `config.toml`:
+Set `theme` to `clr`:
 
+```toml
+[blog]
+theme = "clr"
 ```
+
+
+And add this to `config.toml`:
+
+```toml
 [theme]
 color = "#be005e"
 ```

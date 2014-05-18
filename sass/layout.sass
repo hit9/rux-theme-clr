@@ -1,0 +1,188 @@
+@import text
+@import "iconmoon.css"
+
+// base
+=border-radius($r: 4px)
+  -webkit-border-radius: $r
+  -moz-border-radius: $r
+  -ms-border-radius: $r
+  -o-border-radius: $r
+  border-radius: $r
+
+// vender font
+@import url(http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic)
+=ofl-font()
+  font-family: 'OFL Sorts Mill Goudy', 'OFL Sorts Mill Goudy TT', serif
+
+// *
+*
+  padding: 0
+  margin: 0
+
+html, body
+  min-height: 100%
+
+
+// $aclr: #c03
+$bclr: #eee
+
+a, a:active, a:visited, a:visited:hover
+  // color: $aclr
+  text-decoration: none
+
+a:hover
+  text-decoration: underline
+
+// font
+body
+  font: 17px/1.5 "Helvetica Neue", Helvetica, Consolas, Arial, Sans-serif
+  color: black
+
+// body layout
+$side-width: 16em
+$side-padding: 2.5em
+
+$body-padding-top: $side-padding
+$body-padding-right: 4em
+$body-padding-left: $side-width + 2 * $side-padding + $body-padding-right
+
+$footer-height: 2em
+
+body
+  padding: $body-padding-top $body-padding-right 1em $body-padding-left
+  margin-right: 10em
+  margin-bottom: $footer-height
+
+
+//sticky footer
+html
+  position: relative
+
+.footer
+  position: absolute
+  left: $body-padding-left + 3.5em
+  bottom: 0
+  height: $footer-height
+
+//footer style
+.footer
+  font-size: 15px
+  color: #999
+  font-weight: 200
+  a
+    color: #999
+
+
+.side
+  position: fixed
+  top: 0
+  left: 0
+  width: $side-width
+  padding: $side-padding
+  height: 100%
+  border-right: 1px solid $bclr
+
+// side style
+.side
+  text-align: center
+
+// author
+.side .author
+  a.avatar img
+    $size: $side-width - 2 * $side-padding
+    width: $size
+    height: $size
+    +border-radius(100em)
+    // background-color: $aclr
+  h1, h2
+    +ofl-font()
+    margin-top: .7em
+  h2
+    font-size: 16px
+    color: #777
+
+.main
+  width: 100%
+  display: block
+
+//page
+.main
+  .posts
+    .item
+      +ofl-font()
+      border-bottom: 1px solid $bclr
+      font-size: 22px
+      padding: 1em 0 .3em 0
+      span.date
+        font-size: 17px
+        color: #999
+        float: right
+  .paging
+    width: 100%
+    margin: 1em 0
+    line-height: 1.0
+    font-size: 22px
+    display: inline-block
+    a
+      display: block
+      width: 50%
+    a.prev
+      float: left
+      text-align: left
+    a.next
+      float: right
+      text-align: right
+
+
+//post
+.main
+  .post
+    h1.title
+      +ofl-font()
+      padding-top: 1em
+    p.date
+      +ofl-font()
+      color: #999
+      font-style: italic
+      text-indent: .1em
+    .post-body
+      padding: 1.5em 0 1.5em 0
+    // img in content
+    p img, a img.title-pic
+      width: 100%
+      margin: 1em auto
+      display: block
+      // background-color: $aclr
+    a img.title-pic
+      margin: 0 0 1em 0
+
+  div.posts-nav
+    width: 100%
+    display: inline-block
+    border-top: 1px solid $bclr
+    border-bottom: 1px solid $bclr
+    margin: 1em 0
+    a.next, a.prev
+      color: black
+      padding: 2em 0
+      font-size: 20px
+      display: block
+      width: 50%
+      [class^="icon-"]:before, [class*=" icon-"]:before
+        margin-right: .5em
+        margin-left: .5em
+
+    a.prev
+      float: left
+      text-align: left
+    a.next
+      float: right
+      text-align: right
+    a:hover
+      text-decoration: none
+    a.next:hover, a.prev:hover
+      background-color: rgba(0,0,0,.025)
+
+
+#disqus_thread
+  padding-top: 2em

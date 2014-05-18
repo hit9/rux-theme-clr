@@ -1,0 +1,68 @@
+{# copied from github.com/hit9/rux-theme.default.git #}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{{blog.name}}</title>
+    <style type="text/css" media="all">
+      /* .cut { */
+      /*   page-break-after: always; */
+      /* } */
+      {# Due to wkhtmltopdf, font from google can only load this way :( #}
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/SourceSansPro-Regular.otf') format('truetype');
+      }
+      @font-face {
+        font-family: 'OFL Sorts Mill Goudy TT';
+        font-style: normal;
+        font-weight: 400;
+        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/OFLGoudyStMTT.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'OFL Sorts Mill Goudy TT';
+        font-style: italic;
+        font-weight: 400;
+        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/OFLGoudyStMTT-Italic.ttf' ) format('truetype');
+      }
+
+      img {
+        page-break-inside: avoid !important;
+      }
+
+      {% if 'theme' in config %}
+      {% set clr = config['theme'].get('color', '#c03') %}
+      {% endif %}
+
+      a, a:active, a:visited, a:visited:hover {
+        color: {{clr}};
+      }
+
+    </style>
+    {# Due to wkhtmltopdf, this path should be absolute #}
+    <link rel="stylesheet" href="{{BLOG_ABS_PATH}}/{{blog.theme}}/static/css/pdf.css" type="text/css" media="all"/>
+  </head>
+<body>
+  <div class="container">
+    <div class="content">
+      {% for post in posts %}
+        <h1 class="title">{{post.title}}</h1>
+        <p class="date">{{post.datetime.strftime("%b  %d, %y")}} </p>
+        {% if post.title_pic %}
+          <div class="title-pic-container" style="position: relative">
+            <img style="position:relative" src="{{post.title_pic}}" alt="{{post.title}}" class="title-pic"/>
+          </div>
+        {% endif %}
+        <div class="post-body">
+          {{post.html}}
+        </div>
+        <div class="cut">* * *</div>
+       {% endfor %}
+    </div>
+    <!-- <div class="cut">* * *</div> -->
+  </div>
+</body>
+</html>

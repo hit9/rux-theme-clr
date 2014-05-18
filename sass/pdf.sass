@@ -1,0 +1,51 @@
+@import text
+
+=ofl-font($font-size)
+  font-size: $font-size
+  font-family: 'OFL Sorts Mill Goudy', 'OFL Sorts Mill Goudy TT', serif
+
+html, body
+  width: 100%
+
+$width: 600px
+
+body
+  font: 15px/1.7 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, Sans-serif
+  background: #fff
+  color: black
+  font-weight: 400
+
+.container, .content
+  width: $width
+  margin: 0 auto
+
+.content
+  h1.title
+    +ofl-font(27px)
+    text-align: center
+    display: block
+    margin: 40px 0 24px
+    font-weight: 600
+  p.date
+    +ofl-font(15px)
+    font-style: italic
+    text-align: center
+    margin: 5px 0 30px 0
+  div.title-pic-container, img.title-pic
+    width: $width
+    text-align: center
+  img
+    width: $width
+    display: block
+    margin: 1em auto
+
+.cut
+  clear: both
+  color: #aaa
+  text-align: center
+  letter-spacing: 3px
+  margin: 0
+  margin-top: 15px
+  font-size: 24px
+  opacity: .6
+  margin-bottom: 60px

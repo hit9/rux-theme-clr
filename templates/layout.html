@@ -54,6 +54,16 @@
           {% endif %}
         </div>
         <p class="author-description">{{author.description}}</p>
+        <script>
+          function submitSearch(){
+            document.search.q.value = 'site:' + window.location.host + ' ' + document.search.q.value;
+            return true;
+          }
+        </script>
+        <form class="search" name="search" action="https://www.google.com/search" method="get"
+          onsubmit="submitSearch();">
+          <input type="text" name="q" class="search-input" placeholder="Search.." />
+        </form>
       </div>
     </div>
     <div class="main">

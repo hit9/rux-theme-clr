@@ -40,7 +40,7 @@ body
   color: black
 
 // body layout
-$side-width: 14em
+$side-width: 13.5em
 $side-padding: 2.5em
 
 $body-padding-top: $side-padding
@@ -84,29 +84,34 @@ html
 
 // side style
 .side
-  text-align: center
+  word-break: break-all
 
 // side divs
-.side .author, .main .meta
-  h1, h2
+.side .author
+  .author-name
+    margin-top: 1em
+  .author-name, .author-description
     +ofl-font()
-    margin-top: .7em
-  h2
-    font-size: 16px
-    color: #777
+  p.author-description
+    text-align: left
+    font-size: 1.3em
+    color: #999
 
 .main .meta
+  +ofl-font()
   text-align: center
   margin-bottom: 2em
   padding-bottom: 2em
   border-bottom: 1px solid $bclr
+  h2
+    margin-top: .7em
+    color: #999
 
 // author avatar
 .side .author
   a.avatar img
-    $size: $side-width - 2 * $side-padding
-    width: $size
-    height: $size
+    width: 85%
+    height: 90%
     +border-radius(100em)
     // background-color: $aclr
 

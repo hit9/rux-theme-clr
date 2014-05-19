@@ -31,10 +31,9 @@
     <div class="side">
       <div class="author">
         <a href="{{root}}/" class="avatar">
-          <img src="https://secure.gravatar.com/avatar/{{author.gravatar_id}}?s=200" />
+          <img src="https://secure.gravatar.com/avatar/{{author.gravatar_id}}?s=300" />
         </a>
-        <h1><a href="{{root}}/">{{author.name}}</a></h1>
-        <h2>{{author.description}}</h2>
+        <h1 class="author-name"><a href="{{root}}/">{{author.name}}</a></h1>
         <div class="social">
           {% if author.email %}
           <a href="mailto:{{author.email}}"<i class="icon-mail"></i></a>
@@ -54,6 +53,7 @@
           {% endif %}
           {% endif %}
         </div>
+        <p class="author-description">{{author.description}}</p>
       </div>
     </div>
     <div class="main">

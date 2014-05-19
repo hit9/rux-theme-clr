@@ -34,7 +34,26 @@
           <img src="https://secure.gravatar.com/avatar/{{author.gravatar_id}}?s=200" />
         </a>
         <h1><a href="{{root}}/">{{author.name}}</a></h1>
-        <h2>{{author.description}}</h1>
+        <h2>{{author.description}}</h2>
+        <div class="social">
+          {% if author.email %}
+          <a href="mailto:{{author.email}}"<i class="icon-mail"></i></a>
+          {% endif %}
+          {% if 'theme' in config %}
+          {% set github = config['theme'].get('github', None) %}
+          {% set twitter = config['theme'].get('twitter', None) %}
+          {% set dribbble = config['theme'].get('dribbble', None) %}
+          {% if github %}
+          <a href="https://github.com/{{github}}" title="Github"><i class="icon-github"></i></a>
+          {% endif %}
+          {% if dribbble %}
+          <a href="https://dribbble.com/{{dribbble}}" title="dribbble"><i class="icon-dribbble"></i></a>
+          {% endif %}
+          {% if twitter %}
+          <a href="https://twitter.com/{{twitter}}" title="twitter"><i class="icon-twitter"></i></a>
+          {% endif %}
+          {% endif %}
+        </div>
       </div>
     </div>
     <div class="main">

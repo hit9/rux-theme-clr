@@ -30,11 +30,14 @@ theme = "clr"
 ```
 
 
-And add this to `config.toml`:
+And add this to `config.toml` (you may need to customize your own):
 
 ```toml
 [theme]
-color = "#be005e"
+color = "#be005e" 
+github = "your-github-username"  # optional
+dribbble = "your-dribbble-username"  # optional
+twitter = "your-twitter-username"  # optional
 ```
 
 Snapshots

@@ -37,6 +37,7 @@ And you may want to add this to `config.toml` (you may need to customize your ow
 github = "your-github-username"  # optional
 dribbble = "your-dribbble-username"  # optional
 twitter = "your-twitter-username"  # optional
+pdf_link = "/out.pdf"  # optional
 ```
 
 Snapshots

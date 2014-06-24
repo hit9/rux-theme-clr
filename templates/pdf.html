@@ -6,29 +6,6 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>{{blog.name}}</title>
     <style type="text/css" media="all">
-      /* .cut { */
-      /*   page-break-after: always; */
-      /* } */
-      {# Due to wkhtmltopdf, font from google can only load this way :( #}
-      @font-face {
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 400;
-        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/SourceSansPro-Regular.otf') format('truetype');
-      }
-      @font-face {
-        font-family: 'OFL Sorts Mill Goudy TT';
-        font-style: normal;
-        font-weight: 400;
-        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/OFLGoudyStMTT.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: 'OFL Sorts Mill Goudy TT';
-        font-style: italic;
-        font-weight: 400;
-        src: url('{{BLOG_ABS_PATH}}/{{blog.theme}}/static/fonts/OFLGoudyStMTT-Italic.ttf' ) format('truetype');
-      }
-
       img {
         page-break-inside: avoid !important;
       }
@@ -62,7 +39,6 @@
         <div class="cut">* * *</div>
        {% endfor %}
     </div>
-    <!-- <div class="cut">* * *</div> -->
   </div>
 </body>
 </html>

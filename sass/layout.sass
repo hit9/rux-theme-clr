@@ -1,19 +1,8 @@
+@import normalize
+@import base
 @import text
 @import "iconmoon.css"
 
-// base
-=border-radius($r: 4px)
-  -webkit-border-radius: $r
-  -moz-border-radius: $r
-  -ms-border-radius: $r
-  -o-border-radius: $r
-  border-radius: $r
-
-// vender font
-@import url(http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT:regular,italic)
-=ofl-font()
-  font-weight: 200
-  font-family: 'OFL Sorts Mill Goudy', 'OFL Sorts Mill Goudy TT', serif
 
 // *
 *
@@ -23,21 +12,35 @@
 html, body
   min-height: 100%
 
-
-// $aclr: #c03
 $bclr: #eee
 
-a, a:active, a:visited, a:visited:hover
-  // color: $aclr
-  text-decoration: none
+a, a:active, a:visited
+  color: $black
 
-a:hover
+=link-no-decoration()
+  a, a:active, a:visited
+    text-decoration: none
+
+=link-decoration-underline()
+  a, a:active, a:visited
+    text-decoration: underline
+
+  
+
+a:hover, a:visited:hover
+  color: #cc0000
   text-decoration: underline
 
 // font
 body
-  font: 17px/1.5 "Helvetica Neue", Helvetica, Consolas, Arial, Sans-serif
-  color: black
+  font: 1.215em/1.57 "iABC Regular", Georgia, serif
+  font-weight: normal
+  font-variant: normal
+  font-style: normal
+  color: $black
+  background-color: #fdfdfd
+  text-rendering: optimizeLegibility
+  border-top: .15em solid $black
 
 // body layout
 $side-width: 13.5em
@@ -53,25 +56,11 @@ body
   padding: $body-padding-top $body-padding-right 1em $body-padding-left
   margin-bottom: $footer-height
 
-
-//sticky footer
-html
-  position: relative
-
-.footer
-  position: absolute
-  left: $body-padding-left + 3.5em
-  bottom: 0
-  height: $footer-height
-
 //footer style
 .footer
-  font-size: 15px
-  color: #999
-  font-weight: 200
-  a
-    color: #999
-
+  font-size: 1em
+  text-align: center
+  padding: 1.5em 0 .5em 0
 
 .side
   position: fixed
@@ -84,81 +73,70 @@ html
 
 // side style
 .side
+  +link-no-decoration()
   word-break: break-all
 
 // side divs
 .side .author
+  +ofl-font()
   .author-name
-    +ofl-font()
+    font-size: 1.7em
     margin-top: 1em
   p.author-description
     text-align: left
-    font-size: 1.2em
-    color: #999
 
 .main .meta
+  +link-no-decoration()
   +ofl-font()
   text-align: center
   padding-bottom: 2em
-  border-bottom: 1px solid $bclr
   h2
+    font-style: italic
+    font-size: 20px
     margin-top: .7em
-    color: #999
+  h1, h2
+    font-weight: 200
 
 // author avatar
 .side .author
   a.avatar img
-    width: 85%
-    height: 90%
+    width: 70%
+    height: 70%
     +border-radius(100em)
-    // background-color: $aclr
 
 
 // social icons
 .side .social
-  padding: 1em 0
+  padding: .7em 0
   a
-    font-size: 1.2em
+    font-size: 1em
     display: inline
     margin: 0 .1em
 
 .main
-  max-width: 87%
+  max-width: 85%
   display: block
 
-// search form
-.side form.search
-  display: block
-  border-top: 1px solid $bclr
-  margin-top: 1em
-  padding-top: 1em
-  input
-    width: 100%
-    cursor: text
-    padding: .7em .5em
-    border: 1px solid #ddd
-    +border-radius(3px)
-    box-sizing: border-box
-    resize: none
-    outline: none
 
 //page
 .main
   .posts
+    +link-no-decoration()
     .item
       +ofl-font()
+      font-size: 1.2em
       border-bottom: 1px solid $bclr
-      font-size: 22px
       padding: 1em 0 .3em 0
       span.date
-        font-size: 17px
-        color: #999
+        font-style: italic
+        font-size: .8em
         float: right
   .paging
+    +link-no-decoration()
     width: 100%
     margin: 1em 0
     line-height: 1.0
-    font-size: 22px
+    font-size: 1.5em
     display: inline-block
     a
       display: block
@@ -176,10 +154,11 @@ html
   .post
     h1.title
       +ofl-font()
-      padding-top: 1em
+      padding-top: .5em
+      text-align: center
     p.date
       +ofl-font()
-      color: #999
+      text-align: center
       font-style: italic
       text-indent: .1em
     .post-body
@@ -190,11 +169,11 @@ html
     p img, a img.title-pic
       margin: 1em auto
       display: block
-      // background-color: $aclr
     a img.title-pic
       margin: 0 0 1em 0
 
   div.posts-nav
+    +link-no-decoration()
     width: 100%
     display: inline-block
     border-top: 1px solid $bclr
@@ -220,6 +199,15 @@ html
       text-decoration: none
     a.next:hover, a.prev:hover
       background-color: rgba(0,0,0,.025)
+
+
+.main .symbol
+  font-family: "iABC SC Regular", Georgia, serif
+  font-size: 3.33333em
+  line-height: 1
+  -webkit-font-smoothing: antialiased  // smooth
+  text-align: center
+  display: block
 
 
 #disqus_thread

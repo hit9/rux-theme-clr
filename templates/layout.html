@@ -12,17 +12,6 @@
     <meta name="description" content="{%block meta_description%}{{blog.description}}{%endblock%}"/>
     <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/layout.css?v201405181524" type="text/css" />
     <link rel="shortcut icon" href="{{root}}/{{blog.theme}}/static/images/favicon.ico">
-    {% if 'theme' in config %}
-    {% set clr = config['theme'].get('color', '#c03') %}
-    {% endif %}
-    <style type="text/css">
-      a, a:active, a:visited, a:visited:hover {
-        color: {{clr}};
-      }
-      img {
-        background-color: {{clr}};
-      }
-    </style>
     {% block header_extra %}
     {% endblock %}
     <title>{%block title%}{{blog.name}}{%endblock%}</title>
@@ -54,23 +43,13 @@
           {% endif %}
         </div>
         <p class="author-description">{{author.description}}</p>
-        <script>
-          function submitSearch(){
-            document.search.q.value = 'site:' + window.location.host + ' ' + document.search.q.value;
-            return true;
-          }
-        </script>
-        <form class="search" name="search" action="https://www.google.com/search" method="get"
-          onsubmit="submitSearch();">
-          <input type="text" name="q" class="search-input" placeholder="Search.." />
-        </form>
       </div>
     </div>
     <div class="main">
       {% block content %}
       {% endblock %}
       <div class="footer">
-        © 2014 ,
+        © 2014,
         {{author.name}} |
         site built by <a href="https://github.com/hit9/rux.git">hit9/rux.git</a>|
         theme <a href="https://github.com/hit9/rux-theme-clr.git">clr</a>

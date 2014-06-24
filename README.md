@@ -34,6 +34,7 @@ And you may want to add this to `config.toml` (you may need to customize your ow
 
 ```toml
 [theme]
+email_public = true  # optional
 github = "your-github-username"  # optional
 dribbble = "your-dribbble-username"  # optional
 twitter = "your-twitter-username"  # optional

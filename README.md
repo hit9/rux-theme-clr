@@ -45,3 +45,10 @@ Snapshots
 ![](screenshot-1.png?v201406242248)
 
 ![](screenshot-2.png?v201406242248)
+
+
+Fonts For PDF Generation
+------------------------
+
+Fonts may not be rendered well via wkhtmltopdf, one solution is to install 
+theme on your os: [fonts-for-local](fonts-for-local)

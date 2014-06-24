@@ -25,20 +25,24 @@
         <h1 class="author-name"><a href="{{root}}/">{{author.name}}</a></h1>
         <div class="social">
           {% if author.email %}
-          <a href="mailto:{{author.email}}"<i class="icon-mail"></i></a>
+          <a href="mailto:{{author.email}}"  class="hint--bottom" data-hint="Send me an email"><i class="icon-mail"></i></a>
           {% endif %}
           {% if 'theme' in config %}
           {% set github = config['theme'].get('github', None) %}
           {% set twitter = config['theme'].get('twitter', None) %}
           {% set dribbble = config['theme'].get('dribbble', None) %}
+          {% set pdf_link = config['theme'].get('pdf_link', None) %}
           {% if github %}
-          <a href="https://github.com/{{github}}" title="Github"><i class="icon-github"></i></a>
+          <a href="https://github.com/{{github}}" class="hint--bottom" data-hint="GitHub: @{{github}}" ><i class="icon-github"></i></a>
           {% endif %}
           {% if dribbble %}
-          <a href="https://dribbble.com/{{dribbble}}" title="dribbble"><i class="icon-dribbble"></i></a>
+          <a href="https://dribbble.com/{{dribbble}}" class="hint--bottom" data-hint="Dribbble: @{{dribbble}}"><i class="icon-dribbble"></i></a>
           {% endif %}
           {% if twitter %}
-          <a href="https://twitter.com/{{twitter}}" title="twitter"><i class="icon-twitter"></i></a>
+          <a href="https://twitter.com/{{twitter}}" class="hint--bottom" data-hint="Twitter: @{{twitter}}"><i class="icon-twitter"></i></a>
+          {% endif %}
+          {% if pdf_link %}
+          <a href="{{pdf_link}}" class="hint--bottom" data-hint="Download PDF version of this blog"><i class="icon-arrow-down"></i></a>
           {% endif %}
           {% endif %}
         </div>

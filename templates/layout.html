@@ -12,6 +12,23 @@
     <meta name="description" content="{%block meta_description%}{{blog.description}}{%endblock%}"/>
     <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/layout.css?v201405181524" type="text/css" />
     <link rel="shortcut icon" href="{{root}}/{{blog.theme}}/static/images/favicon.ico">
+    <script>
+
+      function loadCss(filename) {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '{{root}}/{{blog.theme}}/static/css/' + filename;
+        head.appendChild(link);
+      }
+      
+      if (navigator.appVersion.indexOf("Win")!=-1) { // Windows
+        loadCss('windows.css');
+      } else {
+        loadCss('iabc.css')
+      }
+    </script>
     {% block header_extra %}
     {% endblock %}
     <title>{%block title%}{{blog.name}}{%endblock%}</title>

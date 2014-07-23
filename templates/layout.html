@@ -10,24 +10,17 @@
     <meta http-equiv="pragma" content="no-cache" />
     <!-- no cache -->
     <meta name="description" content="{%block meta_description%}{{blog.description}}{%endblock%}"/>
-    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/layout.css?v201405181524" type="text/css" />
     <link rel="shortcut icon" href="{{root}}/{{blog.theme}}/static/images/favicon.ico">
+    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/nprogress.css" type="text/css" />
+    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/jquery.fancybox.css" type="text/css" />
+    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/layout.css?v201407232243" type="text/css" />
+    <script src="{{root}}/{{blog.theme}}/static/js/jquery-1.8.0.min.js"></script>
+    <script src="{{root}}/{{blog.theme}}/static/js/jquery.fancybox.js"></script>
+    <script src="{{root}}/{{blog.theme}}/static/js/nprogress.js"></script>
+    <script src="{{root}}/{{blog.theme}}/static/js/layout.js"></script>
     <script>
-
-      function loadCss(filename) {
-        var head = document.getElementsByTagName('head')[0];
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '{{root}}/{{blog.theme}}/static/css/' + filename;
-        head.appendChild(link);
-      }
-      
-      if (navigator.appVersion.indexOf("Win")!=-1) { // Windows
-        loadCss('windows.css');
-      } else {
-        loadCss('iabc.css')
-      }
+      var staticPath = '{{root}}/{{blog.theme}}/static';
+      initialize(staticPath);
     </script>
     {% block header_extra %}
     {% endblock %}

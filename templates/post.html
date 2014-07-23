@@ -3,7 +3,7 @@
 {% block content %}
 <div class="post">
   {% if post.title_pic %}
-  <a href="{{post.title_pic}}" title="{{post.title}}">
+  <a href="{{post.title_pic}}" title="{{post.title}}" class="fancybox">
     <img src="{{post.title_pic}}" alt="{{post.title}}" class="title-pic"/>
   </a>
   {% endif %}

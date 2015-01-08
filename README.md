@@ -3,7 +3,7 @@ rux-theme-clr
 
 Another theme for [rux](https://github.com/hit9/rux)
 
-live demo: http://hit9.org/
+live demo: http://hit9.github.io
 
 Usage
 -----

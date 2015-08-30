@@ -2,73 +2,72 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <!-- no cache -->
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- no cache -->
-    <meta name="description" content="{%block meta_description%}{{blog.description}}{%endblock%}"/>
-    <link rel="shortcut icon" href="{{root}}/{{blog.theme}}/static/images/favicon.ico">
-    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/nprogress.css" type="text/css" />
-    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/jquery.fancybox.css" type="text/css" />
-    <link rel="stylesheet" href="{{root}}/{{blog.theme}}/static/css/layout.css?v201407232243" type="text/css" />
-    <script src="{{root}}/{{blog.theme}}/static/js/jquery-1.8.0.min.js"></script>
-    <script src="{{root}}/{{blog.theme}}/static/js/jquery.fancybox.js"></script>
-    <script src="{{root}}/{{blog.theme}}/static/js/nprogress.js"></script>
-    <script src="{{root}}/{{blog.theme}}/static/js/layout.js"></script>
-    <script>
-      var staticPath = '{{root}}/{{blog.theme}}/static';
-      initialize(staticPath);
-    </script>
-    {% block header_extra %}
-    {% endblock %}
-    <title>{%block title%}{{blog.name}}{%endblock%}</title>
+    <meta name="description" content="{% block meta_description %}{{ blog.description }}{% endblock %}"/>
+    <link rel="shortcut icon" href="{{ root }}/{{ blog.theme }}/static/images/favicon.ico">
+    <link rel="stylesheet" href="{{ root }}/{{ blog.theme }}/static/css/nprogress.css" type="text/css" />
+    <link rel="stylesheet" href="{{ root }}/{{ blog.theme }}/static/css/jquery.fancybox.css" type="text/css" />
+    <link rel="stylesheet" href="{{ root }}/{{ blog.theme }}/static/css/layout.css?v201508301751" type="text/css" />
+    <title>{% block title %}{{ blog.name }}{% endblock %}</title>
+    {% block header_extra %}{% endblock %}
   </head>
   <body>
-    <div class="side">
-      <div class="author">
-        <a href="{{root}}/" class="avatar">
-          <img src="https://secure.gravatar.com/avatar/{{author.gravatar_id}}?s=300" />
-        </a>
-        <h1 class="author-name"><a href="{{root}}/">{{author.name}}</a></h1>
-        <div class="social">
-          {% if 'theme' in config %}
-          {% set email_public = config['theme'].get('email_public', False) %}
-          {% set github = config['theme'].get('github', None) %}
-          {% set twitter = config['theme'].get('twitter', None) %}
-          {% set dribbble = config['theme'].get('dribbble', None) %}
-          {% set pdf_link = config['theme'].get('pdf_link', None) %}
-          {% if email_public and author.email %}
-          <a href="mailto:{{author.email}}"  class="hint--bottom" data-hint="Send me an email"><i class="icon-mail"></i></a>
-          {% endif %}
-          {% if github %}
-          <a href="https://github.com/{{github}}" class="hint--bottom" data-hint="GitHub: @{{github}}" ><i class="icon-github"></i></a>
-          {% endif %}
-          {% if dribbble %}
-          <a href="https://dribbble.com/{{dribbble}}" class="hint--bottom" data-hint="Dribbble: @{{dribbble}}"><i class="icon-dribbble"></i></a>
-          {% endif %}
-          {% if twitter %}
-          <a href="https://twitter.com/{{twitter}}" class="hint--bottom" data-hint="Twitter: @{{twitter}}"><i class="icon-twitter"></i></a>
-          {% endif %}
-          {% if pdf_link %}
-          <a href="{{pdf_link}}" class="hint--bottom" data-hint="Download PDF version of this blog"><i class="icon-arrow-down"></i></a>
-          {% endif %}
-          {% endif %}
+    <div class="container">
+      <div class="side">
+        <div class="author">
+          <a href="{{ root }}/" class="avatar">
+            <img src="https://secure.gravatar.com/avatar/{{ author.gravatar_id }}?s=300" />
+          </a>
+          <h1 class="author-name">
+            <a href="{{ root }}/">{{ author.name }}</a>
+          </h1>
+          <div class="social">
+            {% if 'theme' in config %}
+            {% set email_public = config['theme'].get('email_public', False) %}
+            {% set github = config['theme'].get('github', None) %}
+            {% set twitter = config['theme'].get('twitter', None) %}
+            {% set dribbble = config['theme'].get('dribbble', None) %}
+            {% set pdf_link = config['theme'].get('pdf_link', None) %}
+            {% if email_public and author.email %}
+            <a href="mailto:{{ author.email }}"  class="hint--bottom" data-hint="Send me an email"><i class="icon-mail"></i></a>
+            {% endif %}
+            {% if github %}
+            <a href="https://github.com/{{ github }}" class="hint--bottom" data-hint="GitHub: @{{ github }}" ><i class="icon-github"></i></a>
+            {% endif %}
+            {% if dribbble %}
+            <a href="https://dribbble.com/{{ dribbble }}" class="hint--bottom" data-hint="Dribbble: @{{ dribbble }}"><i class="icon-dribbble"></i></a>
+            {% endif %}
+            {% if twitter %}
+            <a href="https://twitter.com/{{ twitter }}" class="hint--bottom" data-hint="Twitter: @{{ twitter }}"><i class="icon-twitter"></i></a>
+            {% endif %}
+            {% if pdf_link %}
+            <a href="{{ pdf_link }}" class="hint--bottom" data-hint="Download PDF version of this blog"><i class="icon-arrow-down"></i></a>
+            {% endif %}
+            {% endif %}
+          </div>
+          <p class="author-description">{{author.description}}</p>
         </div>
-        <p class="author-description">{{author.description}}</p>
       </div>
-    </div>
-    <div class="main">
-      {% block content %}
-      {% endblock %}
-      <div class="footer">
-        © 2014,
-        {{author.name}} |
-        site built by <a href="https://github.com/hit9/rux.git">hit9/rux.git</a>|
-        theme <a href="https://github.com/hit9/rux-theme-clr.git">clr</a>
+      <div class="main">
+        {% block content %}
+        {% endblock %}
+        <div class="footer">
+          © 2014-2015,
+          {{ author.name }} |
+          site built by <a href="https://github.com/hit9/rux.git">hit9/rux.git</a>|
+          theme <a href="https://github.com/hit9/rux-theme-clr.git">clr</a>
+        </div>
       </div>
+      <div class="clear"></div>
     </div>
   </body>
+  <script src="{{ root }}/{{ blog.theme }}/static/js/jquery-1.8.0.min.js"></script>
+  <script src="{{ root }}/{{ blog.theme }}/static/js/jquery.fancybox.js"></script>
+  <script src="{{ root }}/{{ blog.theme }}/static/js/nprogress.js"></script>
+  <script src="{{ root }}/{{ blog.theme }}/static/js/layout.js"></script>
+  <script>
+    var staticPath = '{{ root }}/{{ blog.theme }}/static';
+    initialize(staticPath);
+{% block script %}
+{% endblock %}
+  </script>
 </html>

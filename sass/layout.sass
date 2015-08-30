@@ -3,16 +3,22 @@
 @import base
 @import text
 
+$border-color: #ddd
 
-// *
+// basic
+
 *
   padding: 0
   margin: 0
 
-html, body
-  min-height: 100%
-
-$bclr: #ddd
+body
+  font: 1.2125em/1.57 "iABC Regular", Georgia, serif
+  color: $black
+  font-weight: normal
+  font-variant: normal
+  font-style: normal
+  background-color: #fefefe
+  text-rendering: optimizeLegibility
 
 a, a:active, a:visited
   color: $black
@@ -25,106 +31,85 @@ a, a:active, a:visited
   a, a:active, a:visited
     text-decoration: underline
 
-  
-
 a:hover, a:visited:hover
   color: #cc0000
-  text-decoration: underline
+    text-decoration: underline
 
-// font
-body
-  font: 1.2125em/1.57 "iABC Regular", Georgia, serif
-  font-weight: normal
-  font-variant: normal
-  font-style: normal
-  color: $black
-  background-color: #fefefe
-  text-rendering: optimizeLegibility
-
-// body layout
-$side-width: 13.5em
-$side-padding: 2.5em
-
-$body-padding-top: $side-padding
-$body-padding-right: 4em
-$body-padding-left: $side-width + 2 * $side-padding + $body-padding-right
-
-$footer-height: 2em
-
-body
-  padding: $body-padding-top $body-padding-right 1em $body-padding-left
-  margin-bottom: $footer-height
-
-//footer style
-.footer
-  font-size: .9em
-  text-align: center
-  padding: 1.5em 0 .5em 0
+// sidebar + main layout
+.container
+  width: 100%
+  height: 100%
+  margin: 0 auto
 
 .side
   position: fixed
   top: 0
   left: 0
-  width: $side-width
-  padding: $side-padding
+  bottom: 0
+  width: 25%
+  float: left
   height: 100%
-  border-right: .1em solid $bclr
+  padding: 2em
+  display: block
+  +box-sizing()
 
-// side style
+.main
+  position: relative
+  width: 75%
+  float: right
+  padding: 2em 2.5em
+  display: block
+  z-index: 999
+  +box-sizing()
+
+.clear
+  clear: both
+
+// side
 .side
   +link-no-decoration()
   word-break: break-all
-
-// side divs
-.side .author
-  +ofl-font()
-  .author-name
-    font-size: 1.7em
-    margin-top: 1em
-  p.author-description
-    text-align: left
-
-.main .meta
-  +link-no-decoration()
-  +ofl-font()
   text-align: center
-  padding-bottom: 2em
-  h2
-    font-style: italic
-    font-size: 20px
-    margin-top: .7em
-  h1, h2
-    font-weight: 200
+  border-right: .1em solid $border-color
+  // author
+  .author
+    +ofl-font()
+    .author-name
+      font-size: 1.7em
+      margin-top: 1em
+    .author-description
+      text-align: left
+    .avatar img
+      width: 70%
+      height: 70%
+      +border-radius(100em)
+  // social
+  .side .social
+    padding: .7em 0
+    a
+      font-size: 1.1em
+      display: inline
+      margin: 0 .1em
 
-// author avatar
-.side .author
-  a.avatar img
-    width: 70%
-    height: 70%
-    +border-radius(100em)
-
-
-// social icons
-.side .social
-  padding: .7em 0
-  a
-    font-size: 1.1em
-    display: inline
-    margin: 0 .1em
-
+// main
 .main
-  max-width: 85%
-  display: block
-
-
-//page
-.main
+  .meta
+    +link-no-decoration()
+    +ofl-font()
+    text-align: center
+    padding-bottom: 1em
+    h2
+      font-style: italic
+      font-size: 20px
+      margin-top: .5em
+    h1, h2
+      font-weight: 200
   .posts
     +link-no-decoration()
     .item
       +ofl-font()
       font-size: 1.2em
-      border-bottom: 1px solid $bclr
+      border-bottom: 1px solid $border-color
       padding: 1em 0 .3em 0
       span.date
         font-style: italic
@@ -147,9 +132,6 @@ body
       float: right
       text-align: right
 
-
-//post
-.main
   .post
     h1.title
       +ofl-font()
@@ -175,12 +157,12 @@ body
     +link-no-decoration()
     width: 100%
     display: inline-block
-    border-top: 1px solid $bclr
-    border-bottom: 1px solid $bclr
+    border-top: 1px solid $border-color
+    border-bottom: 1px solid $border-color
     margin: 1em 0
     a.next, a.prev
       color: black
-      padding: 2em 0
+      padding: 1em 0
       font-size: 20px
       display: block
       width: 50%
@@ -199,15 +181,18 @@ body
     a.next:hover, a.prev:hover
       background-color: rgba(0,0,0,.07)
 
+  .symbol
+    font-family: "iABC SC Regular", Georgia, serif
+    font-size: 3.33333em
+    line-height: 1
+    -webkit-font-smoothing: antialiased  // smooth
+    text-align: center
+    display: block
 
-.main .symbol
-  font-family: "iABC SC Regular", Georgia, serif
-  font-size: 3.33333em
-  line-height: 1
-  -webkit-font-smoothing: antialiased  // smooth
-  text-align: center
-  display: block
+  #disqus_thread
+    padding-top: 1em
 
-
-#disqus_thread
-  padding-top: 2em
+  .footer
+    font-size: .8em
+    text-align: center
+    padding: 1.5em 0 .5em 0

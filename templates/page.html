@@ -16,7 +16,7 @@
 {% endfor %}
 <div class="paging">
 {% if page.first == False %}
-  <a class="prev" title="Previous Page" href="{%if page.number == 2%}/{%else%}{{root}}/page/{{page.number-1}}.html{%endif%}"> < </a>
+<a class="prev" title="Previous Page" href="{%if page.number == 2%}{{root}}/{%else%}{{root}}/page/{{page.number-1}}.html{%endif%}"> < </a>
 {%endif%}
 {% if page.last == False %}
   <a class="next" title="Next Page" href="{{root}}/page/{{page.number+1}}.html"> > </a>
